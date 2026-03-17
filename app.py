@@ -25,36 +25,6 @@ stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 
 # ============================================
-# LOAD MODELS
-# ============================================
-
-@st.cache_resource
-def load_models():
-
-    models = {}
-
-    # EMAIL
-    models["rf_email"] = joblib.load("rf_email.pkl")
-    models["svm_email"] = joblib.load("svm_email.pkl")
-    models["mlp_email"] = joblib.load("mlp_email.pkl")
-    models["xgb_email"] = joblib.load("xgb_email.pkl")  
-    models["hybrid_email"] = joblib.load("hybrid_email_opt.pkl")
-    models["tfidf_email"] = joblib.load("tfidf_email.pkl")
-    models["threshold_email"] = joblib.load("threshold_email.pkl")
-
-    # SMS
-    models["rf_sms"] = joblib.load("rf_sms.pkl")
-    models["svm_sms"] = joblib.load("svm_sms.pkl")
-    models["nn_sms"] = joblib.load("nn_sms.pkl")
-    models["xgb_sms"] = joblib.load("xgb_sms_tuned.pkl")
-    models["hybrid_sms"] = joblib.load("hybrid_sms_opt.pkl")
-    models["tfidf_sms"] = joblib.load("tfidf_sms.pkl")
-    models["threshold_sms"] = joblib.load("threshold_sms.pkl")
-
-    return models
-models = load_models()
-
-# ============================================
 # TEXT CLEANING
 # ============================================
 
@@ -105,7 +75,35 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ============================================
+# LOAD MODELS
+# ============================================
 
+@st.cache_resource
+def load_models():
+
+    models = {}
+
+    # EMAIL
+    models["rf_email"] = joblib.load("rf_email.pkl")
+    models["svm_email"] = joblib.load("svm_email.pkl")
+    models["mlp_email"] = joblib.load("mlp_email.pkl")
+    models["xgb_email"] = joblib.load("xgb_email.pkl")  
+    models["hybrid_email"] = joblib.load("hybrid_email_opt.pkl")
+    models["tfidf_email"] = joblib.load("tfidf_email.pkl")
+    models["threshold_email"] = joblib.load("threshold_email.pkl")
+
+    # SMS
+    models["rf_sms"] = joblib.load("rf_sms.pkl")
+    models["svm_sms"] = joblib.load("svm_sms.pkl")
+    models["nn_sms"] = joblib.load("nn_sms.pkl")
+    models["xgb_sms"] = joblib.load("xgb_sms_tuned.pkl")
+    models["hybrid_sms"] = joblib.load("hybrid_sms_opt.pkl")
+    models["tfidf_sms"] = joblib.load("tfidf_sms.pkl")
+    models["threshold_sms"] = joblib.load("threshold_sms.pkl")
+
+    return models
+models = load_models()
 
 # ============================================
 # CUSTOM STYLING - Enhanced Dark UI
