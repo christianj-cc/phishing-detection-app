@@ -119,16 +119,16 @@ python app.py
 ## Screenshots
 
 ### Application Interface
-![Email Interface](screenshots/Screenshot (968).png)
-![SMS Interface](screenshots/Screenshot (969).png)
+![Email Interface](screenshots/Screenshot_(968).png)
+![SMS Interface](screenshots/Screenshot_(969).png)
 
 ### Prediction Results (Email)
-![Phishing Email](screenshots/Screenshot (973).png)
-![Legitimate Email](screenshots/Screenshot (974).png)
+![Phishing Email](screenshots/Screenshot_(973).png)
+![Legitimate Email](screenshots/Screenshot_(974).png)
 
 ### Prediction Results (Email)
-![Phishing SMS](screenshots/Screenshot (975).png)
-![Legitimate SMS](screenshots/Screenshot (976).png)
+![Phishing SMS](screenshots/Screenshot_(975).png)
+![Legitimate SMS](screenshots/Screenshot_(976).png)
 
 ---
 
