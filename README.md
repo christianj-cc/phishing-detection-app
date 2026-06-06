@@ -119,12 +119,16 @@ python app.py
 ## Screenshots
 
 ### Application Interface
+![Email Interface](screenshots/Screenshot (968).png)
+![SMS Interface](screenshots/Screenshot (969).png)
 
-(Add screenshots here)
+### Prediction Results (Email)
+![Phishing Email](screenshots/Screenshot (973).png)
+![Legitimate Email](screenshots/Screenshot (974).png)
 
-### Prediction Results
-
-(Add screenshots here)
+### Prediction Results (Email)
+![Phishing SMS](screenshots/Screenshot (975).png)
+![Legitimate SMS](screenshots/Screenshot (976).png)
 
 ---
 
@@ -144,8 +148,6 @@ This project was developed as part of an academic research project.
 ---
 
 ## Learning Outcomes
-
-Through this project, I strengthened my understanding of:
 
 - Machine Learning
 - Cybersecurity
