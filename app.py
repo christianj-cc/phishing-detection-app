@@ -18,8 +18,8 @@ from nltk.stem import WordNetLemmatizer
 # NLTK SETUP
 # ============================================
 
-nltk.download('stopwords')
-nltk.download('wordnet')
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
@@ -75,34 +75,40 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ============================================
-# LOAD MODELS
-# ============================================
+from huggingface_hub import hf_hub_download
 
 @st.cache_resource
 def load_models():
-
     models = {}
 
+    def load(filename):
+        path = hf_hub_download(
+            repo_id="christianj-cc/phishing-models",
+            filename=filename,
+            repo_type="dataset"
+        )
+        return joblib.load(path)
+
     # EMAIL
-    models["rf_email"] = joblib.load("rf_email.pkl")
-    models["svm_email"] = joblib.load("svm_email.pkl")
-    models["mlp_email"] = joblib.load("mlp_email.pkl")
-    models["xgb_email"] = joblib.load("xgb_email.pkl")  
-    models["hybrid_email"] = joblib.load("hybrid_email_opt.pkl")
-    models["tfidf_email"] = joblib.load("tfidf_email.pkl")
-    models["threshold_email"] = joblib.load("threshold_email.pkl")
+    models["rf_email"]        = load("rf_email.pkl")
+    models["svm_email"]       = load("svm_email.pkl")
+    models["mlp_email"]       = load("mlp_email.pkl")
+    models["xgb_email"]       = load("xgb_email.pkl")
+    models["hybrid_email"]    = load("hybrid_email_opt.pkl")
+    models["tfidf_email"]     = load("tfidf_email.pkl")
+    models["threshold_email"] = load("threshold_email.pkl")
 
     # SMS
-    models["rf_sms"] = joblib.load("rf_sms.pkl")
-    models["svm_sms"] = joblib.load("svm_sms.pkl")
-    models["nn_sms"] = joblib.load("nn_sms.pkl")
-    models["xgb_sms"] = joblib.load("xgb_sms_tuned.pkl")
-    models["hybrid_sms"] = joblib.load("hybrid_sms_opt.pkl")
-    models["tfidf_sms"] = joblib.load("tfidf_sms.pkl")
-    models["threshold_sms"] = joblib.load("threshold_sms.pkl")
+    models["rf_sms"]          = load("rf_sms.pkl")
+    models["svm_sms"]         = load("svm_sms.pkl")
+    models["nn_sms"]          = load("nn_sms.pkl")
+    models["xgb_sms"]         = load("xgb_sms_tuned.pkl")
+    models["hybrid_sms"]      = load("hybrid_sms_opt.pkl")
+    models["tfidf_sms"]       = load("tfidf_sms.pkl")
+    models["threshold_sms"]   = load("threshold_sms.pkl")
 
     return models
+
 models = load_models()
 
 # ============================================
