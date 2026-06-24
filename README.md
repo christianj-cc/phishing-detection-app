@@ -1,4 +1,4 @@
-# 🔐 AI-Powered Phishing Detection System
+# AI-Powered Phishing Detection System
 
 Machine learning-based phishing detection system designed to identify malicious Email and SMS messages through text analysis, feature engineering, and classification models.
 
@@ -99,12 +99,10 @@ The project demonstrated strong phishing detection performance across both commu
 ## Project Structure
 
 ```text
-app.py
-requirements.txt
-models/
-datasets/
-screenshots/
-docs/
+app.py               Project code
+requirements.txt     Deployment requirements
+screenshots/         Project screenshots
+docs/                Project documentation
 ```
 
 ## Installation
